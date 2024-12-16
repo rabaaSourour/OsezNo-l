@@ -1,0 +1,103 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('/public/assets/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+.login-container {
+    background: transparent;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #cdbf93;
+    font-weight: 600;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+    color: rgb(126, 127, 108);
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1c1717;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: transparent;
+}
+
+.input-group input:focus {
+    border-color: #cdbf93;
+    box-shadow: 0px 0px 5px rgba(193, 195, 171, 0.7);
+}
+
+.btn {
+    width: 100%;
+    background: linear-gradient(135deg, #8d0808, #310202);
+    border: none;
+    color: #cdbf93;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #2e0307, #6a0505);
+}
+
+/* Texte pour redirection */
+.redirect-text {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.redirect-text a {
+    color: #cdbf93;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.redirect-text a:hover {
+    text-decoration: underline;
+}
