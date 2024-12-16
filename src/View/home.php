@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="bg-container">
+    <div>
+        <a class="btn" href="">Connexion</a>
+    </div>
         <div class="container d-flex justify-content-end align-items-center h-100">
             <div class="calendar-frame p-4">
                 <div class="row gx-2 gy-2">
