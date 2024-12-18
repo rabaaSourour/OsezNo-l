@@ -1,0 +1,110 @@
+
+.bg-container {
+    background-image: url('/assets/images/calendar.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.btn{
+    position: absolute;
+    color: #e7e8c8;
+    top: 20px;
+    right: 40px;
+    border: 2px solid #e7e8c8;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(152, 152, 149, 0.2);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(152, 152, 149, 0.8);
+    transition: background 0.3s ease;
+}
+.calendar-frame {
+    width: 400px;
+    min-height: 500px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(8px); 
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+
+.calendar-box {
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2); 
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.calendar-box:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.calendar-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #DDAC17;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+}
+
+.calendar-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.calendar-border:nth-child(1) {
+    transform: rotate(0deg);
+}
+
+.calendar-border:nth-child(2) {
+    transform: rotate(90deg);
+}
+
+.calendar-border:nth-child(3) {
+    transform: rotate(180deg);
+}
+
+.calendar-border:nth-child(4) {
+    transform: rotate(270deg);
+}
+
+.calendar-border:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ECC440;
+    animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    50% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    50.1% {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+    100% {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+}

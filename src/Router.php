@@ -6,44 +6,31 @@ use App\Database\DbConnection;
 
 class Router
 {
-    private ?object $controller = null;
-    private ?string $method = null;
+    private array $routes = [];
 
-    public function __construct(private string $requestMethod, string $uri)
+    public function add(string $method, string $path, string $action): void
     {
-        $this->parseUri($uri);
+        $this->routes[] = ['method' => $method, 'path' => $path, 'action' => $action];
     }
 
-    private function parseUri(string $uri): void
+    public function handleRequest(): void
     {
-        if ('/' === $uri || '' === $uri) {
-            $uri = '/home/show';
-        }
-
-        $path = parse_url($uri, PHP_URL_PATH);
-
-        $uriExplode = explode('/', $path);
-        $controllerAlias = $uriExplode[1];
-        $method = $uriExplode[2];
+        $method = $_SERVER['REQUEST_METHOD'];
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         $pdo = DbConnection::getPdo();
-
-        $controllerName = 'App\\Controller\\' . ucfirst($controllerAlias) . 'Controller';
-
-        if(class_exists($controllerName)) {
-            $this->controller = new $controllerName($pdo);
-            $this->method = $method;
+        
+        foreach ($this->routes as $route) {
+            if ($route['method'] === $method && $route['path'] === $uri) {
+                [$controller, $method] = explode('::', $route['action']);
+                $controllerInstance = new $controller($pdo);
+                $controllerInstance->$method();
+                return;
+            }
         }
-    }
 
-    public function getController() : ?object
-    {
-        return $this->controller;
+        http_response_code(404);
+        echo "404 - Page not found";
     }
-
-    public function getMethod() : ?string
-    {
-        return $this->method;
-    }
-    
 }
+
