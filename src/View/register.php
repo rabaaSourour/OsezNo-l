@@ -25,7 +25,7 @@
                     <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
                 </div>
                 <button type="submit" class="btn">Créer le compte</button>
-                <p class="redirect-text">Vous avez déja un compte ? <a href="signin.php">Connectez-vous</a></p>
+                <p class="redirect-text">Vous avez déja un compte ? <a href="/signin">Connectez-vous</a></p>
             </form>
         </div>
     </div>

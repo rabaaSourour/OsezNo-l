@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Changer le mot de passe</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/styles/login.css">
+    <link rel="stylesheet" href="/styles/login.css">
 </head>
 <body>
     <div class="container mt-5">
@@ -41,7 +41,7 @@
                 <?php endif; ?>
 
                 <p class="redirect-text text-center mt-4">
-                    Retour à la connexion <a href="signin.php">Connectez-vous</a>
+                    Retour à la connexion <a href="/signin">Connectez-vous</a>
                 </p>
             </div>
         </div>
