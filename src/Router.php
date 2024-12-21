@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Database\DbConnection;
+use App\Controller\CalendarController;
 
 class Router
 {
@@ -19,12 +20,13 @@ class Router
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         $pdo = DbConnection::getPdo();
-        
+
         foreach ($this->routes as $route) {
-            if ($route['method'] === $method && $route['path'] === $uri) {
+            $pattern = preg_replace('/\{[a-zA-Z0-9_]+\}/', '([a-zA-Z0-9_]+)', $route['path']);
+            if ($route['method'] === $method && preg_match('#^' . $pattern . '$#', $uri, $matches)) {
                 [$controller, $method] = explode('::', $route['action']);
                 $controllerInstance = new $controller($pdo);
-                $controllerInstance->$method();
+                $controllerInstance->$method(...array_slice($matches, 1));
                 return;
             }
         }
@@ -32,5 +34,5 @@ class Router
         http_response_code(404);
         echo "404 - Page not found";
     }
-}
 
+}
