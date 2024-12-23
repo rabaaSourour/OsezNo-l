@@ -7,7 +7,16 @@ CREATE TABLE users (
 
 CREATE TABLE calendars (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    users_id INT NOT NULL,
+    user_id INT NOT NULL,
     title VARCHAR(255) NOT NULL,
-    FOREIGN KEY (users_id) REFERENCES users(id) ON DELETE CASCADE
+    theme VARCHAR(100) DEFAULT NULL,
+    color VARCHAR(7) DEFAULT NULL,
+    bg_image VARCHAR(255) DEFAULT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE calendar_days (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    day INT NOT NULL,
+    is_unlocked BOOLEAN DEFAULT FALSE
 );

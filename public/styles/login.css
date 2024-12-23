@@ -7,20 +7,38 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('/assets/images/login.jpg') no-repeat center center fixed;
+    background: url('/assets/images/cozy.jpg');
     background-size: cover;
-    color: #333;
+    background-position: center;
+    color: #000000;
 }
 
 .login-container {
-    background: transparent;
+    background: rgba(151, 149, 122, 0.3);
     border-radius: 12px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 10px 20px rgba(239, 239, 201, 0.2);
     padding: 40px;
     width: 100%;
     max-width: 400px;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    animation: border-glow 2s infinite ease-in-out;
+}
+
+@keyframes border-glow {
+    0% {
+        border-color: #e7e8c8; /* Couleur initiale */
+        box-shadow: 0 0 20px rgba(152, 150, 149, 0.8);
+    }
+    50% {
+        border-color: #ffde59; /* Couleur intermédiaire (jaune) */
+        box-shadow: 0 0 30px rgba(255, 222, 89, 0.8); /* Intensification de la lumière */
+    }
+    100% {
+        border-color: #e7e8c8; /* Retour à la couleur initiale */
+        box-shadow: 0 0 20px rgba(152, 150, 149, 0.8);
+    }
 }
 
 @keyframes fadeIn {
@@ -37,8 +55,17 @@ body {
 .form-title {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #cdbf93;
+    color: #8d0808;
     font-weight: 600;
+    text-shadow:
+        0 0 7px rgb(255, 222, 89),
+        0 0 10px rgb(255, 222, 89),
+        0 0 21px rgb(255, 222, 89),
+        0 0 42px rgb(255, 222, 89),
+        0 0 82px rgb(255, 222, 89),
+        0 0 92px rgb(255, 222, 89),
+        0 0 102px rgb(255, 222, 89),
+        0 0 151px rgb(255, 222, 89);
 }
 
 .input-group {
@@ -57,7 +84,7 @@ body {
 .input-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #cdbf93;
     border-radius: 8px;
     font-size: 1rem;
     outline: none;

@@ -9,76 +9,73 @@
 </head>
 <body>
 <header>
-    <h1>Osez Noël</h1>
-    <a class="btn-logout" href="/signin/logout">Déconnexion</a>
+    <h1 class="festive-logo">
+        <span class="o-wrapper">
+            <img src="/assets/images/bonnet.png" alt="Bonnet de Noël" class="bonnet">
+            O
+        </span>
+            sez Noël
+    </h1>
+    <ul>
+        <li><a class="btn-header" href="/calendar">Calendrier</a></li>
+        <li><a class="btn-header" href="/logout">Déconnexion</a></li>
+    </ul>
 </header>
-    <div class="container">
-        <section class="calendar-section">
-            <div class="calendar">
-                <div class="calendar-header">
-                    <h2>Décembre</h2>
-                </div>
-                <div class="calendar-grid">
-                    <div class="day">1</div>
-                    <div class="day special"><i class="fas fa-gift"></i></div>
-                    <div class="day">3</div>
-                    <div class="day">4</div>
-                    <div class="day special"><i class="fas fa-star"></i></div>
-                    <div class="day">6</div>
-                    <div class="day">7</div>
-                    <div class="day">8</div>
-                    <div class="day">9</div>
-                    <div class="day special"><i class="fas fa-bell"></i></div>
-                    <div class="day">11</div>
-                    <div class="day">12</div>
-                    <div class="day">13</div>
-                    <div class="day special"><i class="fas fa-gift"></i></div>
-                    <div class="day">15</div>
-                    <div class="day">16</div>
-                    <div class="day">17</div>
-                    <div class="day">18</div>
-                    <div class="day special"><i class="fas fa-star"></i></div>
-                    <div class="day">20</div>
-                    <div class="day">21</div>
-                    <div class="day">22</div>
-                    <div class="day special"><i class="fas fa-tree"></i></div>
-                    <div class="day">24</div>
-                </div>
+
+<div class="container">
+    <section class="calendar-section">
+        <div class="calendar">
+            <div class="calendar-header">
+                <h2>Découvrez la magie de Noël, un jour à la fois</h2>
             </div>
-        </section>
-
-        <div class="actions">
-            <button class="btn create">Créer</button>
-            <button class="btn view">Voir</button>
-            <button class="btn share">Partager</button>
-            <button class="btn delete">Supprimer</button>
-        </div>
-
-        <div class="customization">
-            <h2>Personnalisation</h2>
-            <div class="options">
-                <div>
-                    <label for="theme">🎨 Thème :</label>
-                    <select id="theme">
-                        <option value="citation">Citations</option>
-                        <option value="objectif">Objectifs</option>
-                        <option value="encouragement">Encouragements</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="color">🌈 Couleur principale :</label>
-                    <input type="color" id="color" value="#FFD700">
-                </div>
-                <div>
-                    <label for="bg-image">🖼️ Image d’arrière-plan :</label>
-                    <input type="file" id="bg-image" accept="image/*">
-                </div>
+            <div class="calendar-grid">
+                <div class="day">1</div>
+                <div class="day special"><i class="fas fa-gift"></i></div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day special"><i class="fas fa-star"></i></div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day">8</div>
+                <div class="day">9</div>
+                <div class="day special"><i class="fas fa-bell"></i></div>
+                <div class="day">11</div>
+                <div class="day">12</div>
+                <div class="day">13</div>
+                <div class="day special"><i class="fas fa-gift"></i></div>
+                <div class="day">15</div>
+                <div class="day">16</div>
+                <div class="day">17</div>
+                <div class="day">18</div>
+                <div class="day special"><i class="fas fa-star"></i></div>
+                <div class="day">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                <div class="day special"><i class="fas fa-tree"></i></div>
+                <div class="day">24</div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer class="footer">
-        <p>&copy; 2024 Calendrier Festif 🎅 | Joyeux Noël !</p>
-    </footer>
+    <div class="actions">
+    <button class="btn main">Menu</button>
+    <div class="actions-bar">
+    <button class="btn" data-action="create">Créer un Calendrier</button>
+    <button class="btn" data-action="myCalendars">Mes Calendriers</button>
+    <button class="btn" data-action="edite">Modifier un Calendrier</button>
+    <button class="btn" data-action="delete">Supprimer un Calendrier</button>
+    <button class="btn" data-action="share">Partager un Calendrier</button>
+</div>
+</div>
+
+<div id="customization-content"></div>
+
+
+<footer class="footer">
+    <p>&copy; 2024 Calendrier Festif 🎅 | Joyeux Noël !</p>
+</footer>
+
+
+    <script src="/js/home.js"></script>
 </body>
 </html>

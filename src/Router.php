@@ -3,7 +3,6 @@
 namespace App;
 
 use App\Database\DbConnection;
-use App\Controller\CalendarController;
 
 class Router
 {
@@ -15,24 +14,28 @@ class Router
     }
 
     public function handleRequest(): void
-    {
-        $method = $_SERVER['REQUEST_METHOD'];
-        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+{
+    $method = $_SERVER['REQUEST_METHOD'];
+    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-        $pdo = DbConnection::getPdo();
+    $pdo = DbConnection::getPdo();
 
-        foreach ($this->routes as $route) {
-            $pattern = preg_replace('/\{[a-zA-Z0-9_]+\}/', '([a-zA-Z0-9_]+)', $route['path']);
-            if ($route['method'] === $method && preg_match('#^' . $pattern . '$#', $uri, $matches)) {
-                [$controller, $method] = explode('::', $route['action']);
-                $controllerInstance = new $controller($pdo);
-                $controllerInstance->$method(...array_slice($matches, 1));
-                return;
-            }
+    foreach ($this->routes as $route) {
+        $pattern = preg_replace('/\{[a-zA-Z0-9_]+\}/', '([a-zA-Z0-9_]+)', $route['path']);
+        if ($route['method'] === $method && preg_match('#^' . $pattern . '$#', $uri, $matches)) {
+            // Si l'URL contient un paramètre dynamique, récupérez-le
+            [$controller, $method] = explode('::', $route['action']);
+            $controllerInstance = new $controller($pdo);
+            $parameters = array_slice($matches, 1); // Récupérer les paramètres depuis l'URL
+
+            // Passer les paramètres dynamiques à la méthode du contrôleur
+            $controllerInstance->$method(...$parameters);
+            return;
         }
-
-        http_response_code(404);
-        echo "404 - Page not found";
     }
+
+    http_response_code(404);
+    echo "404 - Page not found";
+}
 
 }

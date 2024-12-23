@@ -12,7 +12,7 @@
 <body>
     <div class="bg-container">
         <div>
-            <a class="btn" href="/signin">Connexion</a>
+            <a class="btn" href="/">Home</a>
         </div>
         <div class="container d-flex justify-content-end align-items-center h-100">
             <div class="calendar-frame p-4">
