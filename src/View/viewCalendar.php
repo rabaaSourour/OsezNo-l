@@ -38,9 +38,7 @@ $currentDay = date('j');
         <div>
             <a class="btn" href="/">Home</a>
         </div>
-        <div class="container d-flex justify-content-center align-items-center h-100">
-            <?php require_once __DIR__ . '/calendar_part.php'; ?>
-        </div>
+        <?php require_once __DIR__ . '/calendar_part.php'; ?>
     </div>
 
     <div id="surprise-container" class="surprise-container" style="display: none;">

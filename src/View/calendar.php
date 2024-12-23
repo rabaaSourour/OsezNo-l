@@ -14,23 +14,7 @@
         <div>
             <a class="btn" href="/">Home</a>
         </div>
-        <div class="container d-flex justify-content-end align-items-center h-100">
-            <div class="calendar-frame p-4">
-                <div class="row gx-2 gy-2">
-                    <?php
-                    $days = range(1, 24);
-                    shuffle($days);
-                    $currentDay = date('j');
-                    foreach ($days as $day): ?>
-                        <div class="col-3">
-                            <div id="day-<?= $day ?>" class="calendar-box <?= $day <= $currentDay ? 'unlocked' : 'locked' ?>" data-day="<?= $day ?>">
-                                <span class="calendar-number"><?= $day ?></span>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
+        <?php require_once __DIR__ . '/calendar_part.php'; ?>
     </div>
 
     <div id="surprise-container" class="surprise-container" style="display: none;">

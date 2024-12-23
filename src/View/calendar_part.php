@@ -4,16 +4,16 @@
     $currentDay = date('j');
 ?>
 
-<div class="calendar-frame p-4">
-    <div class="row gx-2 gy-2">
-        <?php foreach ($days as $day): ?>
-            <div class="col-3">
-                <div id="day-<?= $day ?>" 
-                    class="calendar-box <?= $day <= $currentDay ? 'unlocked' : 'locked' ?>" 
-                    data-day="<?= $day ?>">
-                    <span class="calendar-number"><?= $day ?></span>
+<div class="container d-flex justify-content-end align-items-center h-100">
+    <div class="calendar-frame p-4">
+        <div class="row gx-2 gy-2">
+            <?php foreach ($days as $day): ?>
+                <div class="col-3">
+                    <div id="day-<?= $day ?>" class="calendar-box <?= $day <= $currentDay ? 'unlocked' : 'locked' ?>" data-day="<?= $day ?>">
+                        <span class="calendar-number"><?= $day ?></span>
+                    </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>
